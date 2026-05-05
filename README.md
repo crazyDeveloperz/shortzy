@@ -1,5 +1,3 @@
-
-
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
@@ -76,9 +74,83 @@ Output: https://droplink.co/mVkra
     <li><a href="https://viplink.in" target="_blank">viplink.in</a></li>
     <li><a href="https://shorturllink.in" target="_blank">shorturllink.in</a></li>
     <li><a href="https://shareus.in" target="_blank">shareus.in</a></li>
+    <li><a href="https://sahiurl.in" target="_blank">sahiurl.in</a> ✨ NEW</li>
+    <li><a href="https://siteprotector.vercel.app" target="_blank">siteprotector.vercel.app</a> ✨ NEW</li>
     <li><a href="https://telegram.me/ask_admin001">Request For Your Website !</a></li>
   </ol>
 </details>
+
+---
+
+## Using sahiurl.in
+
+```python
+from shortzy import Shortzy
+import asyncio
+
+shortzy = Shortzy(api_key="YOUR_SAHIURL_API_KEY", base_site="sahiurl.in")
+
+async def main():
+    # Single URL shorten
+    link = await shortzy.convert("https://example.com/")
+    print(link)
+    # Output: https://sahi.to/abc123
+
+    # With custom alias
+    link = await shortzy.convert("https://example.com/", alias="mylink")
+    print(link)
+
+    # Bulk convert
+    links = ["https://github.com/", "https://google.com/"]
+    short_links = await shortzy.bulk_convert(links)
+    print(short_links)
+
+    # Convert all links inside a text
+    text = "Visit https://example.com/ and https://google.com/"
+    result = await shortzy.convert_from_text(text)
+    print(result)
+
+asyncio.run(main())
+```
+
+> **API Key**: Get from [sahiurl.in](https://sahiurl.in) Dashboard → Tools
+>
+> **Response field**: `shortenedUrl`
+
+---
+
+## Using siteprotector.vercel.app
+
+```python
+from shortzy import Shortzy
+import asyncio
+
+shortzy = Shortzy(api_key="YOUR_SITEPROTECTOR_API_KEY", base_site="siteprotector.vercel.app")
+
+async def main():
+    # Single URL shorten
+    link = await shortzy.convert("https://example.com/")
+    print(link)
+    # Output: https://siteprotector.vercel.app/go/8k2N9x
+
+    # Bulk convert
+    links = ["https://github.com/", "https://google.com/"]
+    short_links = await shortzy.bulk_convert(links)
+    print(short_links)
+
+    # Convert all links inside a text
+    text = "Visit https://example.com/ and https://google.com/"
+    result = await shortzy.convert_from_text(text)
+    print(result)
+
+asyncio.run(main())
+```
+
+> **API Key**: `583e61f4-6920-4a26-a8fc-397eea598a08` (example — use your own)
+>
+> **Response field**: `shortened_url`
+
+---
 
 ## Features
 
