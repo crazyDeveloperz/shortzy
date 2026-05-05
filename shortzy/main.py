@@ -1,6 +1,8 @@
 from .shareus import Shareus
 from .adlinkfly import Adlinkfly
 from .shareusio import ShareusIO
+from .sahiurl import SahiUrl
+from .siteprotector import SiteProtector
 
 
 class Shortzy:
@@ -11,6 +13,13 @@ class Shortzy:
     :type api_key: str
     :param base_site: The site you want to use, defaults to droplink.co
     :type base_site: str (optional)
+
+    Supported sites:
+        - droplink.co (default) and all Adlinkfly-based alternatives
+        - shareus.in
+        - shareus.io
+        - sahiurl.in
+        - siteprotector.vercel.app
     """
 
     def __init__(self, api_key: str, base_site: str = "droplink.co"):
@@ -24,6 +33,10 @@ class Shortzy:
             self.shortener = Shareus(api_key, base_site=base_site)
         elif self.base_site == "shareus.io":
             self.shortener = ShareusIO(api_key, base_site=base_site)
+        elif self.base_site == "sahiurl.in":
+            self.shortener = SahiUrl(api_key, base_site=base_site)
+        elif self.base_site == "siteprotector.vercel.app":
+            self.shortener = SiteProtector(api_key, base_site=base_site)
         else:
             self.shortener = Adlinkfly(api_key, base_site=base_site)
 
@@ -149,6 +162,8 @@ class Shortzy:
             "viplink.in",
             "shorturllink.in",
             "shareus.in",
+            "sahiurl.in",
+            "siteprotector.vercel.app",
             "All droplink.co Alternative Websites",
         ]
         return "\n".join(available_websites)
